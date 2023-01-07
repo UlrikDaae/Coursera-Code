@@ -1,6 +1,7 @@
-# Exercise 5 - Estimating Parameters of the Normal Distribution
-# 1. What is the estimated mean of the daily log returns in gold? Enter the answer using eight decimal places, i.e., n.nnnnnnnn (where n is an integer). 
-# 2. What is the estimated standard deviation of the daily log returns in gold? Enter the answer using six decimal places, i.e., n.nnnnnn (where n is an integer). 
+"" Exercise 5 - Estimating Parameters of the Normal Distribution
+1. What is the estimated mean of the daily log returns in gold? Enter the answer using eight decimal places, i.e., n.nnnnnnnn (where n is an integer). 
+2. What is the estimated standard deviation of the daily log returns in gold? Enter the answer using six decimal places, i.e., n.nnnnnn (where n is an integer). 
+""
 
 # Load library & package
 library(quantmod)
