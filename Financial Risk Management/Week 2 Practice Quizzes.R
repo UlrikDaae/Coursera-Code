@@ -1,7 +1,5 @@
 # Exercise 5 - Estimating Parameters of the Normal Distribution
-# 1. What is the estimated mean of the daily log returns in gold? Enter the answer using eight decimal places, i.e., n.nnnnnnnn (where n is an integer). 
-# 2. What is the estimated standard deviation of the daily log returns in gold? Enter the answer using six decimal places, i.e., n.nnnnnn (where n is an integer). 
-
+# My code:
 # Load library & package
 library(quantmod)
 load("qjzU8SH6Ro-81PEh-maPtg_0c46ff6057ab4ab2a4482e18632530f1_FRED_gold.rda")
@@ -18,13 +16,8 @@ round(mean(logret), 8)
 round(sd(logret), 6)
 
 # ------------------------------------------------------------------------------------------------------------------------
-
 # Exercise 6 - Estimating VaR of the Normal Distribution
-# 1. What is the value-at-risk (VaR) of the daily log returns in gold, at the 95% confidence level? Enter the answer using six decimal places, i.e., n.nnnnnn (where n is an integer). If this is a negative number, please add a minus (“-“) sign in front. If this is a positive number, there is no need to add a plus sign in front. 
-
-#2 Suppose the hedge fund invested the entire $1000 million in gold instead of US equities. What is the VaR of the daily changes in the assets of the hedge fund, at the 95% confidence level? Enter the answer in terms of millions of US Dollars, using one decimal place, i.e., nnn.n (where n is an integer). If this is a negative number, please add a minus (“-“) sign in front. If this is a positive number, there is no need to add a plus sign in front.
-
-
+# My code:
 library(quantmod)
 load("qjzU8SH6Ro-81PEh-maPtg_0c46ff6057ab4ab2a4482e18632530f1_FRED_gold.rda")
 gold <- gold["1979-12-31/2017-12-28"]
@@ -62,7 +55,6 @@ es <- round(mu-sig*dnorm(qnorm(0.05, 0, 1),0, 1)/0.05, 6)
 HFvar <- round(1000 * (exp(es)-1),1)
 
 # ------------------------------------------------------------------------------------------------------------------------
-
 # Exercise 8 - Estimating VaR and ES via Simulation
 # My code:
 mu <- mean(logret)
