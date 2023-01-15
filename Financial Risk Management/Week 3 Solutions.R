@@ -17,22 +17,22 @@ logret <- diff(log(JPUS))[-1]
 
 # Skewness
 rvec <- as.vector(logret)
-round(skewness(rvec), 2) # Q1
+round(skewness(rvec), 2)
 
 # Kurtosis
 rvec <- as.vector(logret)
-round(kurtosis(rvec), 2) # Question 2
+round(kurtosis(rvec), 2) 
 
 #JB test
 rvec <- as.vector(logret)
-jarque.test(rvec) # Question 3
+jarque.test(rvec)
 
 # 4 <- scaled t distribution
 # Student t-Distribution
 alpha <- 0.01
 rvec <- as.vector(logret)
 t.fit <- fitdistr(rvec, "t") 
-round(t.fit$estimate, 6) # 4-6 m-parameter. Somehow the S and df was right......
+round(t.fit$estimate, 6) 
 
 RNGkind(sample.kind="Rounding")
 set.seed(123789)
@@ -40,7 +40,7 @@ rvec <- rt.scaled(100000, mean=t.fit$estimate[1], sd=t.fit$estimate[2], df=t.fit
 VaR <- quantile(rvec, alpha)
 ES <- mean(rvec[rvec<VaR]) 
 round(VaR,6)
-round(ES,6) # Q7. Correct. 
+round(ES,6) 
 
 # Simulation 1
 alpha <- 0.01
@@ -98,21 +98,21 @@ logret <- diff(log(USUK))[-1]
 
 # Skewness
 rvec <- as.vector(logret)
-round(skewness(rvec), 2) # Question 1
+round(skewness(rvec), 2) 
 
 # Kurtosis
 rvec <- as.vector(logret)
-round(kurtosis(rvec), 2) # Question 2
+round(kurtosis(rvec), 2) 
 
 #JB test
 rvec <- as.vector(logret)
-jarque.test(rvec) # Question 3
+jarque.test(rvec) 
 
 # 4 <- scaled t distribution
 # Student t-Distribution
 rvec <- as.vector(logret)
 t.fit <- fitdistr(rvec, "t") 
-round(t.fit$estimate, 6) # Question 4-6
+round(t.fit$estimate, 6) 
 
 alpha <- 0.01
 RNGkind(sample.kind="Rounding")
@@ -121,7 +121,7 @@ rvec <- rt.scaled(100000, mean=t.fit$estimate[1], sd=t.fit$estimate[2], df=t.fit
 VaR <- quantile(rvec, alpha)
 ES <- mean(rvec[rvec<VaR]) 
 round(VaR,6)
-round(ES,6) # Question 7 
+round(ES,6) 
 
 # Simulation 1
 alpha <- 0.01
@@ -134,7 +134,7 @@ for (i in 1:10) {
 VaR <- quantile(rvec, alpha)
 ES <- mean(rvec[rvec<VaR])
 round(VaR, 6)
-round(ES, 6) # Question 8
+round(ES, 6) 
 
 # Simulation 2
 alpha <- 0.01
@@ -147,7 +147,7 @@ for (i in 1:10){
 VaR <- quantile(rvec, alpha)
 ES <- mean(rvec[rvec<VaR])
 round(VaR, 6)
-round(ES, 6) # Question 9
+round(ES, 6) 
 
 # Simulation 3
 alpha <- 0.01
@@ -164,5 +164,5 @@ for (i in 1:10) {
 VaR <- quantile(rvec, alpha)
 ES <- mean(rvec[rvec<VaR])
 round(VaR, 6)
-round(ES, 6)# Question 10
+round(ES, 6)
 
