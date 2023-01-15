@@ -107,7 +107,7 @@ logret_SZUS <- diff(log(SZUS))[-1]
 round(head(logret_SZUS, 3), 6)
 
 ret_SZUS <- exp(logret_SZUS)-1
-round(head(ret_SZUS, 3), 6) # MAKE SURE THIS IS CORRECT.
+round(head(ret_SZUS, 3), 6)
 
 # Log returns
 logret_SZUS_w <- apply.weekly(logret_SZUS, sum)
