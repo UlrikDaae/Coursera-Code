@@ -1,4 +1,4 @@
-Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
+/* Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset Coursera Worksheet
 
 This is a 2-part assignment. In the first part, you are asked a series of questions that will help you profile and understand the data just like a data scientist would. For this first part of the assignment, you will be assessed both on the correctness of your findings, as well as the code you used to arrive at your answer. You will be graded on how easy your code is to read, so remember to use proper formatting and comments where necessary.
 
@@ -11,14 +11,14 @@ In this case, you may want to save as a PDF to ensure your formatting remains in
 
 Part 1: Yelp Dataset Profiling and Understanding
 
-1. Profile the data by finding the total number of records for each of the tables below:
+1. Profile the data by finding the total number of records for each of the tables below: */
 
 SELECT 
 	(*)
 FROM 
 	(table);
 
-X is the name of the table.
+-- X is the name of the table.
 	
 i. Attribute table = 10000
 ii. Business table = 10000
@@ -34,7 +34,7 @@ xi. user table = 10000
 	
 
 
-2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
+-- 2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
 
 SELECT
 	COUNT(DISTINCT (primary/foreign key))
@@ -54,17 +54,12 @@ ix. User = 10000
 x. Friend = 11
 xi. Elite_years = 2780
 
-Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
+-- Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
 
+-- 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
+Answer: No
 
-
-3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
-
-	Answer: No
-	
-	
-	SQL code used to arrive at answer:
-	
+-- SQL code used to arrive at answer:
 SELECT 
     count(*)
 
@@ -75,7 +70,7 @@ WHERE
 	(collumn) IS NULL;
 
 	
-4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
+-- 4. For each table and column listed below, display the smallest (minimum), largest (maximum), and average (mean) value for the following fields:
 
 	i. Table: Review, Column: Stars
 	
@@ -99,8 +94,7 @@ WHERE
 	
 	v. Table: User, Column: Review_count
 	
-		min:	0	max:	2000	avg: 24.2995
-		
+		min:	0	max:	2000	avg: 24.2995	
 
 SELECT 
     MIN(collumn) AS min_(collumn),
@@ -110,12 +104,9 @@ SELECT
 FROM 
     (table);
 
+-- 5. List the cities with the most reviews in descending order:
 
-
-
-5. List the cities with the most reviews in descending order:
-
-	SQL code used to arrive at answer:
+-- SQL code used to arrive at answer:
 	
 SELECT 
     city,
@@ -130,7 +121,7 @@ GROUP BY
 ORDER BY 
     num_reviews DESC;
 	
-	Copy and Paste the Result Below:
+/* Copy and Paste the Result Below:
 	
 +-----------------+-------------+
 | city            | num_reviews |
@@ -168,7 +159,7 @@ ORDER BY
 
 i. Avon
 
-SQL code used to arrive at answer:
+SQL code used to arrive at answer: */
 
 SELECT 
     stars,
@@ -182,8 +173,8 @@ WHERE city == 'Avon'
 GROUP BY stars;
 
 
-Copy and Paste the Resulting Table Below (2 columns – star rating and count):
-
+-- Copy and Paste the Resulting Table Below (2 columns – star rating and count):
+/* 
 +-------+-------------+
 | stars | num_reviews |
 +-------+-------------+
@@ -196,7 +187,7 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 +-------+-------------+
 ii. Beachwood
 
-SQL code used to arrive at answer:
+SQL code used to arrive at answer: */ 
 
 SELECT 
     stars,
@@ -209,7 +200,7 @@ WHERE city == 'Beachwood'
 
 GROUP BY stars;
 
-Copy and Paste the Resulting Table Below (2 columns – star rating and count):
+/* Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 		
 +-------+-------------+
 | stars | num_reviews |
@@ -223,9 +214,9 @@ Copy and Paste the Resulting Table Below (2 columns – star rating and count):
 |   5.0 |          23 |
 +-------+-------------+
 
-7. Find the top 3 users based on their total number of reviews:
+7. Find the top 3 users based on their total number of reviews: */ 
 		
-	SQL code used to arrive at answer:
+-- SQL code used to arrive at answer:
 	
 SELECT 
     name,
@@ -243,8 +234,8 @@ ORDER BY
 LIMIT 
     3;
 		
-	Copy and Paste the Result Below:
-		
+Copy and Paste the Result Below:
+/* 		
 +--------+--------------+
 | name   | review_count |
 +--------+--------------+
@@ -255,8 +246,9 @@ LIMIT
 
 8. Does posing more reviews correlate with more fans?
 
-Please explain your findings and interpretation of the results:
+Please explain your findings and interpretation of the results: 
 Yes somewhat. If you select review count and sort by ascending order you'll see that those with 0 or 1 reviews have 0 or 1 fans, and if you sort by descending order you'll see that those with higher review counts have more fans. However, there is large differences in those 25 with the highest number of reviews. In other words, more reviews means more fans, but it's not a linear correlation. 
+*/ 
 
 SELECT 
     name,
@@ -273,12 +265,12 @@ ORDER BY
     review_count DESC;
 
 	
-9. Are there more reviews with the word "love" or with the word "hate" in them?
+-- 9. Are there more reviews with the word "love" or with the word "hate" in them?
 
-	Answer: Yes.
+-- Answer: Yes.
 
-	
-	SQL code used to arrive at answer:
+
+-- SQL code used to arrive at answer:
 SELECT 
     COUNT(*)
 
@@ -298,7 +290,7 @@ WHERE
 	text LIKE "%hate%";
 
 	
-	Copy and Paste the Result Below:
+/* Copy and Paste the Result Below:
 +----------+
 | COUNT(*) |
 +----------+
@@ -309,12 +301,10 @@ WHERE
 +----------+
 |      232 |
 +----------+
-
-	
 	
 10. Find the top 10 users with the most fans:
 
-	SQL code used to arrive at answer:
+SQL code used to arrive at answer: */ 
 
 SELECT 
     name,
@@ -328,10 +318,7 @@ ORDER BY
 
 LIMIT 
     10;
-
-
-		
-
+/*
 Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
@@ -348,7 +335,7 @@ iii. Are you able to infer anything from the location data provided between thes
 It's hard to infer anything from the postal codes, given that I don't know anything about how Toronto zip-codes work. That said, two of the restaurants with some of the worst ratings are in teh same neighborhood.
 
 
-SQL code used for analysis:
+SQL code used for analysis: */ 
 SELECT
     b.city,
     b.name,
@@ -371,10 +358,8 @@ ORDER BY
     b.stars
 
 LIMIT 25;
-
-		
-		
-2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
+	
+/* 2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
 		
 i. Difference 1:
 	Restaurants open have on average 2.0 higher stars than those that are marked as closed. 
@@ -383,8 +368,7 @@ i. Difference 1:
 ii. Difference 2:
          Those that are open also has a much higher rate of reviews (37.0 vs 5.375).
          
-         
-SQL code used for analysis:
+SQL code used for analysis: */
 SELECT
     b.city,
     b.name,
@@ -414,8 +398,7 @@ ORDER BY
  
 LIMIT 25;
 
-	
-	
+/*	
 3. For this last part of your analysis, you are going to choose the type of analysis you want to conduct on the Yelp dataset and are going to prepare the data for analysis.
 
 Ideas for analysis include: Parsing out keywords and business attributes for sentiment analysis, clustering businesses to find commonalities or anomalies between them, predicting the overall star rating for a business, predicting the number of fans a user will have, and so on. These are just a few examples to get you started, so feel free to be creative and come up with your own problem you want to solve. Provide answers, in-line, to all of the following:
@@ -430,7 +413,7 @@ ii. Write 1-2 brief paragraphs on the type of data you will need for your analys
 	To do this I need an independent variable, in our case going to be to predict whether a store goes bankrupt – i.e. "is_open". Secondly we need some other variables to test whether these might have an impact. In our case I want it to be the number of stars (b.stars), reviews (b.review_count) and then try to make separate models for categories and cities. That's the story of this data. 
                            
                   
-/* iii. Output of your finished dataset:
+iii. Output of your finished dataset:
          
 +---------+------------------------+---------------------------------------------+------------------------+---------------+-------+--------------+
 | is_open | id                     | name                                        |               category | city          | stars | review_count |
